@@ -1,4 +1,4 @@
-package com.java.thread.connectionpool;
+package artConcurrent.book.thread.connectionpool;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

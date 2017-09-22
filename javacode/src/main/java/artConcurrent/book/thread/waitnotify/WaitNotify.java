@@ -1,6 +1,6 @@
-package com.java.thread.waitnotify;
+package artConcurrent.book.thread.waitnotify;
 
-import com.java.thread.utils.SleepUtils;
+import artConcurrent.book.thread.utils.SleepUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

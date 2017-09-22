@@ -1,4 +1,4 @@
-package com.java.thread.threadjoin;
+package artConcurrent.book.thread.threadjoin;
 
 // --------------------- Change Logs----------------------
 // <p>@author ruirui.qu Initial Created at 17/9/2<p>

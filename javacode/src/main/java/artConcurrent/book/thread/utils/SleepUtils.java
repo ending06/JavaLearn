@@ -1,4 +1,4 @@
-package com.java.thread.utils;
+package artConcurrent.book.thread.utils;
 
 import java.util.concurrent.TimeUnit;
 

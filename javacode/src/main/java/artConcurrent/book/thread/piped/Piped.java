@@ -1,4 +1,4 @@
-package com.java.thread.piped;
+package artConcurrent.book.thread.piped;
 
 import java.io.IOException;
 import java.io.PipedInputStream;

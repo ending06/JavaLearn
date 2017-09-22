@@ -1,4 +1,4 @@
-package com.java.thread.base;
+package artConcurrent.book.thread.base;
 
 // --------------------- Change Logs----------------------
 // <p>@author ruirui.qu Initial Created at 17/8/29<p>
