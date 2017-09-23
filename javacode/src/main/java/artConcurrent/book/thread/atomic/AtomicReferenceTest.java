@@ -1,4 +1,4 @@
-package com.java.spring.atomic;
+package artConcurrent.book.thread.atomic;
 
 import com.google.common.base.Objects;
 
