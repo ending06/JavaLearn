@@ -9,7 +9,9 @@ import java.util.concurrent.TimeUnit;
 /*flag is true,this thread is wait waitThread
   notifyThread get lock
   notifyThread get lock agin
-  flag is false,this thread is running waitThread*/
+  flag is false,this thread is running waitThread
+  3 4的顺序可能互换
+  */
 // -------------------------------------------------------
 public class NotifyAndWaitThread {
     private static boolean flag = true;
