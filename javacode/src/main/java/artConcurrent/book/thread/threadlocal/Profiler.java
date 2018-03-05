@@ -4,10 +4,12 @@ import java.util.concurrent.TimeUnit;
 
 // --------------------- Change Logs----------------------
 // <p>@author ruirui.qu Initial Created at 17/9/2<p>
+// 判断耗时
 // -------------------------------------------------------
 public class Profiler {
     // 第一次get方法调用时，会进行初始化
     private static final ThreadLocal<Long> TIME_THREADLOCAL = new ThreadLocal<Long>() {
+        @Override
         protected Long initialValue() {
             return System.currentTimeMillis();
         }
