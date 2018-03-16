@@ -1,4 +1,4 @@
-package com.java.spring.forkjoin;
+package artConcurrent.book.thread.forkjoin;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ForkJoinPool;
