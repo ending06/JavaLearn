@@ -1,4 +1,4 @@
-package suanfa.prc;
+package simple.suanfa.prc;
 
 import java.util.Scanner;
 import java.util.regex.Pattern;

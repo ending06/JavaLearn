@@ -1,4 +1,4 @@
-package suanfa.prc;
+package simple.suanfa.prc;
 
 // --------------------- Change Logs----------------------
 // <p>@author ruirui.qu Initial Created at 18/3/23<p>
