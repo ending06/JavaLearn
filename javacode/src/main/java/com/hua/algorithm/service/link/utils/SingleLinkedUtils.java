@@ -79,20 +79,20 @@ public class SingleLinkedUtils {
         originNode.disPlay();
     }
 
-    // 空间O(N)
+    // 空间O(N),反转链表
     public static void reverseLinkedByNSpace(SingleLinked singleLinked) {
         if (singleLinked == null || singleLinked.getSize() == 0) {
             System.out.println("空链表无需反转");
         }
 
-        //链表更改数据，堆栈数据也会更改。。
+        // 链表更改数据，堆栈数据也会更改。。
         Stack<Object> stack = pushStack(singleLinked);
         System.out.printf("原链表:");
         singleLinked.disPlay();
 
         int tempSize = stack.size();
         SingleLinked.Node reverseNode = singleLinked.getHead();
-        while(tempSize>0){
+        while (tempSize > 0) {
             Object data = stack.pop();
             reverseNode.setData(data);
             reverseNode = reverseNode.getNext();
@@ -102,7 +102,28 @@ public class SingleLinkedUtils {
         System.out.printf("    反转后链表为");
         singleLinked.disPlay();
 
+    }
 
+    /**
+     * 判断链表是否是回文结构 O(N)
+     * */
+    public static boolean isPalindrome(SingleLinked singleLinked) {
+        if (singleLinked == null || singleLinked.getSize() == 0) {
+            return false;
+        }
+        Stack<Object> stack = pushStack(singleLinked);
+
+        int tempSize = singleLinked.getSize();
+        SingleLinked.Node cur = singleLinked.getHead();
+
+        while (tempSize > 0) {
+            if (cur.getData() != stack.pop()) {
+                return false;
+            }
+            cur = cur.getNext();
+            tempSize--;
+        }
+        return true;
     }
 
     private static Stack<Object> pushStack(SingleLinked singleLinked) {
@@ -124,16 +145,16 @@ public class SingleLinkedUtils {
         return result == 0 ? 0 : result > 0 ? 1 : -1;
     }
 
-    private static void printStack(Stack<Object> stack ){
+    private static void printStack(Stack<Object> stack) {
         if (stack.empty()) {
-            return ;
+            return;
         } else {
             Enumeration items = stack.elements(); // 得到 stack 中的枚举对象
-            while (items.hasMoreElements()) //显示枚举（stack ） 中的所有元素
+            while (items.hasMoreElements()) // 显示枚举（stack ） 中的所有元素
             {
                 System.out.print(items.nextElement());
             }
         }
-        System.out.println(); //换行
+        System.out.println(); // 换行
     }
 }

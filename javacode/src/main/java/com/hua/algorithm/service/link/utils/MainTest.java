@@ -41,5 +41,20 @@ public class MainTest {
         System.out.println("\n");
         System.out.println("反转单向链表==============");
         SingleLinkedUtils.reverseLinkedByNSpace(singleLinked3);
+
+
+        SingleLinked singleLinked4 = new SingleLinked();
+        singleLinked4.addTail(1);
+        singleLinked4.addTail(2);
+        //singleLinked4.addTail(3);
+        singleLinked4.addTail(2);
+        singleLinked4.addTail(1);
+        System.out.println("\n");
+        System.out.println("判断链表是否是回文结构O(n)==============");
+        boolean result = SingleLinkedUtils.isPalindrome(singleLinked4);
+        System.out.printf("链表:");
+        singleLinked4.disPlay();
+        System.out.printf("  判断回文结果"+result);
+
     }
 }
