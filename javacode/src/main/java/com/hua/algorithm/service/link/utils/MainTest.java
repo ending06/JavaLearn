@@ -18,6 +18,7 @@ public class MainTest {
         singleLinked2.addTail(3);
         singleLinked2.addTail(5);
 
-        SingleLinkedUtils.findSameStrByOrderingLinked(singleLinked,singleLinked2);
+        SingleLinkedUtils.findSameStrByOrderingLinked(singleLinked, singleLinked2);
+        SingleLinkedUtils.delBackWardsKNode(singleLinked,4);
     }
 }
