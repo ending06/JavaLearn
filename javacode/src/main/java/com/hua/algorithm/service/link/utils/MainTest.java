@@ -17,9 +17,13 @@ public class MainTest {
         singleLinked2.addTail(2);
         singleLinked2.addTail(3);
         singleLinked2.addTail(5);
-
+        System.out.println("找出两个单向链表的公共部分==============");
         SingleLinkedUtils.findSameStrByOrderingLinked(singleLinked, singleLinked2);
+        System.out.println("\n");
+        System.out.println("删除单向链表倒数第"+4+"个节点==============");
         SingleLinkedUtils.delBackWardsKNode(singleLinked,4);
+        System.out.println("\n");
+        System.out.println("反转单向链表==============");
         SingleLinkedUtils.reverseLinkedByNSpace(singleLinked);
     }
 }

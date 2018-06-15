@@ -15,9 +15,14 @@ public class SingleLinkedUtils {
         if (null == a || null == b || a.getSize() == 0 || b.getSize() == 0) {
             return;
         }
+        System.out.printf("链表A:");
+        a.disPlay();
+        System.out.printf("   链表B:");
+        b.disPlay();
+
         SingleLinked.Node head1 = a.getHead();
         SingleLinked.Node head2 = b.getHead();
-
+        System.out.printf("     公共子串为");
         while (head1 != null && head2 != null) {
             int result = compareResult(head1, head2);
             if (result == -1) {
@@ -25,7 +30,7 @@ public class SingleLinkedUtils {
             } else if (result == 1) {
                 head2 = head2.getNext();
             } else {
-                System.out.println(head1.getData() + ";");
+                System.out.printf(head1.getData() + " ");
                 head1 = head1.getNext();
                 head2 = head2.getNext();
             }
@@ -40,7 +45,7 @@ public class SingleLinkedUtils {
             return;
         }
 
-        System.out.println("删除前的链表为");
+        System.out.printf("删除前的链表为");
         originNode.disPlay();
         int count = 0;
         SingleLinked.Node curNode = originNode.getHead();
@@ -48,7 +53,6 @@ public class SingleLinkedUtils {
             curNode = curNode.getNext();
             count++;
         }
-        System.out.println("当前链表的总长度=" + count);
         int posi = count - k;
         if (posi < 0) {
             System.out.println("当前长度小于" + k + ";不支持删除操作");
@@ -71,7 +75,7 @@ public class SingleLinkedUtils {
             int size = originNode.getSize();
             originNode.setSize(size - 1);
         }
-        System.out.println("删除后的链表为");
+        System.out.printf("    删除后的链表为");
         originNode.disPlay();
     }
 
@@ -85,21 +89,17 @@ public class SingleLinkedUtils {
         Stack<Object> stack = pushStack(singleLinked);
         System.out.printf("原链表:");
         singleLinked.disPlay();
-        System.out.println("\n");
-
 
         int tempSize = stack.size();
         SingleLinked.Node reverseNode = singleLinked.getHead();
         while(tempSize>0){
             Object data = stack.pop();
-            System.out.println("当前弹出的元素:"+data);
-            printStack(stack);
             reverseNode.setData(data);
             reverseNode = reverseNode.getNext();
 
             tempSize--;
         }
-        System.out.println("反转后链表为");
+        System.out.printf("    反转后链表为");
         singleLinked.disPlay();
 
 
@@ -114,7 +114,6 @@ public class SingleLinkedUtils {
             curNode = curNode.getNext();
             tempSize--;
         }
-        printStack(stack);
         return stack;
     }
 
@@ -127,9 +126,8 @@ public class SingleLinkedUtils {
 
     private static void printStack(Stack<Object> stack ){
         if (stack.empty()) {
-            System.out.println("堆栈是空的，没有元素");
+            return ;
         } else {
-            System.out.print("堆栈中的元素：");
             Enumeration items = stack.elements(); // 得到 stack 中的枚举对象
             while (items.hasMoreElements()) //显示枚举（stack ） 中的所有元素
             {
