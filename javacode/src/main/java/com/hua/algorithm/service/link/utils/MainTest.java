@@ -20,5 +20,6 @@ public class MainTest {
 
         SingleLinkedUtils.findSameStrByOrderingLinked(singleLinked, singleLinked2);
         SingleLinkedUtils.delBackWardsKNode(singleLinked,4);
+        SingleLinkedUtils.reverseLinkedByNSpace(singleLinked);
     }
 }
