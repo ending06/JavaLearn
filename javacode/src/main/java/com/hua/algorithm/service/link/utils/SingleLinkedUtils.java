@@ -1,20 +1,20 @@
-package com.hua.algorithm.service.link.impl;
+package com.hua.algorithm.service.link.utils;
 
-import com.hua.algorithm.model.SingleLinked;
-import com.hua.algorithm.service.link.SingleLinkedService;
 import com.google.common.primitives.Ints;
+import com.hua.algorithm.service.link.model.SingleLinked;
 
-// --------------------- Change Logs----------------------
+//--------------------- Change Logs----------------------
 // <p>@author ruirui.qu Initial Created at 18/6/15<p>
-// -------------------------------------------------------
-public class SingleLinkedServiceImpl implements SingleLinkedService {
-    @Override
-    public void findSameStrByOrderingLinked(SingleLinked a, SingleLinked b) {
+//-------------------------------------------------------
+public class SingleLinkedUtils {
+    //有序链表中查找相同的部分
+    public static void findSameStrByOrderingLinked(SingleLinked a, SingleLinked b) {
         if (null == a || null == b || a.getSize() == 0 || b.getSize() == 0) {
             return;
         }
         SingleLinked.Node head1 = a.getHead();
         SingleLinked.Node head2 = b.getHead();
+
         while(head1!=null&&head2!=null){
             int result = compareResult(head1,head2);
             if(result==-1){
@@ -29,25 +29,12 @@ public class SingleLinkedServiceImpl implements SingleLinkedService {
         }
     }
 
-    private int compareResult(SingleLinked.Node head1, SingleLinked.Node head2) {
+    private static int compareResult(SingleLinked.Node head1, SingleLinked.Node head2) {
         int head1Data = Integer.parseInt(String.valueOf(head1.getData()));
         int head2Date = Integer.parseInt(String.valueOf(head2.getData()));
         int result = Ints.compare(head1Data, head2Date);
         return result == 0 ? 0 : result > 0 ? 1 : -1;
     }
 
-    public static void main(String[] args) {
-        SingleLinked singleLinked = new SingleLinked();
-        singleLinked.addTail(1);
-        singleLinked.addTail(2);
-        singleLinked.addTail(3);
-        singleLinked.addTail(4);
 
-        SingleLinked singleLinked2 = new SingleLinked();
-        singleLinked2.addTail(2);
-        singleLinked2.addTail(3);
-        singleLinked2.addTail(4);
-
-        findSameStrByOrderingLinked(singleLinked,singleLinked2);
-    }
 }

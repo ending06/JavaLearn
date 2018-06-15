@@ -1,4 +1,4 @@
-package com.hua.algorithm.model;
+package com.hua.algorithm.service.link.model;
 
 // --------------------- Change Logs----------------------
 // <p>@author ruirui.qu Initial Created at 18/6/15<p>
