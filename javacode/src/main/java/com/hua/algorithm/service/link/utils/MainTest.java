@@ -56,5 +56,17 @@ public class MainTest {
         singleLinked4.disPlay();
         System.out.printf("  判断回文结果"+result);
 
+
+        SingleLinked singleLinked5 = new SingleLinked();
+        singleLinked5.addTail(1);
+        singleLinked5.addTail(2);
+        singleLinked5.addTail(3);
+        singleLinked5.addTail(4);
+        singleLinked5.addTail(5);
+        System.out.println("\n");
+        System.out.println("反转2-4之间的数据==============");
+        SingleLinkedUtils.reverseAssignFromToList(singleLinked4);
+
+
     }
 }

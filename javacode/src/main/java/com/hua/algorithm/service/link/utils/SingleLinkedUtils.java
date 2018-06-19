@@ -126,6 +126,13 @@ public class SingleLinkedUtils {
         return true;
     }
 
+    /**
+     * from to反转
+     * */
+    public static void reverseAssignFromToList(SingleLinked singleLinked) {
+
+    }
+
     private static Stack<Object> pushStack(SingleLinked singleLinked) {
         Stack<Object> stack = new Stack<>();
         int tempSize = singleLinked.getSize();
