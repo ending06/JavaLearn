@@ -184,5 +184,7 @@ public class BinaryTree {
         System.out.printf("\n后序遍历:");
         binaryTree.postOrder(root);
 
+        System.out.printf("\n根结点:"+binaryTree.getParent(parent2).getData());
+
     }
 }
