@@ -1,6 +1,7 @@
 package com.hua.algorithm.service.node;
 
 import com.google.common.base.Objects;
+import com.hua.algorithm.service.Str.utils.StringUtils;
 
 public class BinaryTree {
 
@@ -32,19 +33,14 @@ public class BinaryTree {
         }
     }
 
-    public int getSize()
-    {
+    public int getSize() {
         return getNum(root);
     }
 
-    private int getNum(TreeNode node)
-    {
-        if (node == null)
-        {
+    private int getNum(TreeNode node) {
+        if (node == null) {
             return 0;
-        }
-        else
-        {
+        } else {
             int i = getNum(node.getLchild());
             int j = getNum(node.getRchild());
             return j + i + 1;
@@ -91,6 +87,27 @@ public class BinaryTree {
             postOrder(node.getLchild());
             postOrder(node.getRchild());
             System.out.printf(node.getData() + "==>");
+        }
+    }
+
+    private boolean findKey(TreeNode node, String key) {
+        if (StringUtils.isBlank(key) || node == null) {
+            return false;
+        }
+        if (StringUtils.equals(node.data, key)) {
+            System.out.println("结点找到,当前结点是:" + node.getData());
+            String lValue = node.getLchild() != null ? node.getLchild().getData() : null;
+            System.out.println("结点找到,当前结点左孩子是:" + lValue);
+
+            String rValue = node.getRchild() != null ? node.getRchild().getData() : null;
+            System.out.println("结点找到,当前结点右孩子是:" + rValue);
+            return true;
+        } else {
+            if (findKey(node.getLchild(), key)) {
+                return true;
+            } else {
+                return findKey(node.getRchild(), key);
+            }
         }
     }
 
@@ -160,31 +177,40 @@ public class BinaryTree {
     }
 
     public static void main(String[] args) {
-        TreeNode lchild = new TreeNode("2-l",null,null);
-        TreeNode rchild = new TreeNode("2-r",null,null);
-        TreeNode parent = new TreeNode("2",lchild,rchild);
+        /*
+         * TreeNode lchild = new TreeNode("2-l",null,null); TreeNode rchild = new TreeNode("2-r",null,null); TreeNode
+         * parent = new TreeNode("2",lchild,rchild); TreeNode rchild2 = new TreeNode("3-r",null,null); TreeNode parent2
+         * = new TreeNode("3",null,rchild2); TreeNode root = new TreeNode("root",parent,parent2); BinaryTree binaryTree
+         * = new BinaryTree(root); System.out.println("结点个数==>"+binaryTree.getSize());
+         * System.out.println("高度==>"+binaryTree.getHeight(root)); System.out.printf("前序遍历:");
+         * binaryTree.preOrder(root); System.out.printf("\n中序遍历:"); binaryTree.inOrder(root);
+         * System.out.printf("\n后序遍历:"); binaryTree.postOrder(root);
+         * System.out.printf("\n根结点:"+binaryTree.getParent(parent2).getData());
+         */
 
-        TreeNode rchild2 = new TreeNode("3-r",null,null);
-        TreeNode parent2 = new TreeNode("3",null,rchild2);
+        // ===二分查找
+        TreeNode lnodeTwo = new TreeNode("0", null, null);
+        TreeNode rnodeTwo = new TreeNode("1", null, null);
+        TreeNode nodeTwo = new TreeNode("2", lnodeTwo, rnodeTwo);
 
-        TreeNode root = new TreeNode("root",parent,parent2);
+        TreeNode rnodeFive = new TreeNode("6", null, null);
+        TreeNode nodeFive = new TreeNode("5", nodeTwo, rnodeFive);
 
-        BinaryTree binaryTree = new BinaryTree(root);
+        TreeNode rnodeeight = new TreeNode("9", null, null);
+        TreeNode nodeeight = new TreeNode("8", null, rnodeeight);
 
-        System.out.println("结点个数==>"+binaryTree.getSize());
+        TreeNode rnodeEleven = new TreeNode("13", null, null);
+        TreeNode nodeEleven = new TreeNode("11", nodeeight, rnodeEleven);
 
-        System.out.println("高度==>"+binaryTree.getHeight(root));
+        TreeNode nodeSeven = new TreeNode("7", nodeFive, nodeEleven);
 
-        System.out.printf("前序遍历:");
-        binaryTree.preOrder(root);
+        BinaryTree binarySearch = new BinaryTree(nodeSeven);
 
-        System.out.printf("\n中序遍历:");
-        binaryTree.inOrder(root);
+        System.out.printf("后序遍历:");
+        binarySearch.postOrder(nodeSeven);
 
-        System.out.printf("\n后序遍历:");
-        binaryTree.postOrder(root);
-
-        System.out.printf("\n根结点:"+binaryTree.getParent(parent2).getData());
+        String key = "8";
+        binarySearch.findKey(nodeSeven, key);
 
     }
 }
