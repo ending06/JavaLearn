@@ -216,6 +216,31 @@ public class Solution {
         }
         return result;
     }
+    /**
+     * 旋转链表
+     * */
+    public ListNode rotateRightWithComplex(ListNode head, int k) {
+        if(head==null||head.next==null||(k==0)){
+            return head;
+        }
+        for(int i=0;i<k;i++){
+            move(head);
+        }
+        return head;
+    }
+
+    private void move(ListNode head) {
+        ListNode cur = head.next;
+        while(cur.next!=null){
+            int temp = cur.val;
+            cur.val = head.val;
+            head.val = temp;
+            cur = cur.next;
+        }
+        int temp = cur.val;
+        cur.val = head.val;
+        head.val = temp;
+    }
 
     public static void main(String[] args) {
         Solution solution = new Solution();
@@ -241,6 +266,6 @@ public class Solution {
         System.out.println("head===>" + result);*/
         //solution.addTwoNumbers(node1,node4);
 
-        //solution.rotateRight(node1,2);
+        solution.rotateRightWithComplex(node1,2);
     }
 }
