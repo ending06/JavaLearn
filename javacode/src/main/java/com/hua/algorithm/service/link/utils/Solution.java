@@ -242,6 +242,40 @@ public class Solution {
         head.val = temp;
     }
 
+    public ListNode rotateRight(ListNode head, int k) {
+        if(head==null||head.next==null||(k==0)){
+            return head;
+        }
+        int length = 0;
+        ListNode cur = head;
+        while(cur!=null){
+            length++;
+            cur = cur.next;
+        }
+        int count = length-k%length;
+        if(count==0){
+            return head;
+        }
+
+        ListNode pre = head;
+        ListNode newNode = null;
+
+        int init = 1;
+        while(init<count){
+            init++;
+            pre = pre.next;
+        }
+        newNode = pre.next;
+        pre.next = null;
+        pre = null;
+        pre = newNode;
+        while(pre.next!=null){
+            pre = pre.next;
+        }
+        pre.next = head;
+        return newNode;
+    }
+
     public static void main(String[] args) {
         Solution solution = new Solution();
         ListNode node1 = new ListNode(1);
@@ -266,6 +300,7 @@ public class Solution {
         System.out.println("head===>" + result);*/
         //solution.addTwoNumbers(node1,node4);
 
-        solution.rotateRightWithComplex(node1,2);
+        //solution.rotateRightWithComplex(node1,2);
+        solution.rotateRight(node1,2);
     }
 }
