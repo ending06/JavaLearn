@@ -1,4 +1,4 @@
-package com.hua.algorithm.service.array;
+package com.hua.algorithm.service.leetcode;
 
 //--------------------- Change Logs----------------------
 // <p>@author ruirui.qu Initial Created at 18/8/22<p>

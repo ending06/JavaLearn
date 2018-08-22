@@ -1,4 +1,4 @@
-package com.hua.algorithm.service.link.utils;
+package com.hua.algorithm.service.leetcode;
 
 class ListNode {
     int val;
@@ -10,7 +10,7 @@ class ListNode {
     }
 }
 
-public class Solution {
+public class LinkSolution {
 
     /**
      * 删除链表中某个节点
@@ -277,7 +277,7 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        Solution solution = new Solution();
+        LinkSolution solution = new LinkSolution();
         ListNode node1 = new ListNode(1);
         ListNode node2 = new ListNode(2);
         ListNode node3 = new ListNode(3);
